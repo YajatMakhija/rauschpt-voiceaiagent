@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarah — Rausch Physical Therapy Voice Agent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#0c4a42;
+    --teal-deep:#093832;
+    --ink:#0d1714;
+    --ink-soft:#11201c;
+    --cream:#f6f3ec;
+    --cream-deep:#efeadf;
+    --light:#f6f3ec;
+    --light-card:#fffdf8;
+    --coral:#e3683f;
+    --coral-soft:#ef7d57;
+    --muted:#7a8a85;
+    --muted-dark:#5d6f6a;
+    --line:rgba(13,23,20,.10);
+    --line-dark:rgba(13,23,20,.12);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Hanken Grotesk',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(246,243,236,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;gap:18px;height:66px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.5px;color:var(--ink)}
+  .brand .r-logo{background:var(--ink);color:#e3683f;font-family:var(--serif);font-weight:700;padding:6px 12px;border-radius:7px;font-size:15px;letter-spacing:1px}
+  .brand .x{color:var(--muted);font-size:13px}
+  .brand .agent{background:var(--teal);color:#fffdf8;padding:6px 14px;border-radius:7px;font-size:13px;font-weight:700;letter-spacing:.5px}
+  .nav-links{margin-left:auto;display:flex;gap:24px;align-items:center}
+  .nav-links a{color:var(--muted-dark);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .badge-conf{background:var(--coral);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:8px 14px;border-radius:7px}
+
+  /* SECTIONS */
+  section{padding:104px 0}
+  .sec-teal{background:var(--cream);color:var(--ink)}
+  .sec-ink{background:var(--cream-deep);color:var(--ink)}
+  .sec-light{background:var(--light-card);color:var(--ink)}
+
+  .kicker{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:2px;color:var(--coral);text-transform:uppercase;margin-bottom:26px}
+  .kicker .dash{width:34px;height:2px;background:var(--coral);display:inline-block}
+  .pill{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:40px;padding:8px 18px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted-dark);margin-bottom:32px;background:#fff}
+  .pill .dot{width:8px;height:8px;border-radius:50%;background:#3ad29f;box-shadow:0 0 0 4px rgba(58,210,159,.18)}
+
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(42px,7vw,82px);line-height:1.02;letter-spacing:-1px;color:var(--ink)}
+  h1 .accent{color:var(--coral);font-style:italic}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(32px,4.6vw,56px);line-height:1.05;letter-spacing:-.5px;color:var(--ink)}
+  h2 .muted2{color:rgba(13,23,20,.3)}
+  .sec-light h2 .muted2{color:rgba(13,23,20,.3)}
+  .lead{font-size:clamp(16px,1.6vw,19px);max-width:620px;color:#475651;margin-top:24px}
+  .sec-light .lead{color:#475651}
+
+  /* HERO */
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+  .hero-art{position:relative;height:340px;border-radius:18px;border:1px solid var(--line);background:radial-gradient(120% 120% at 70% 20%,rgba(227,104,63,.18),transparent 55%),linear-gradient(160deg,#fffdf8,#efeadf);display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .hero-art .ring{position:absolute;border:1px solid rgba(13,23,20,.08);border-radius:50%}
+  .ring.r1{width:120px;height:120px}.ring.r2{width:210px;height:210px}.ring.r3{width:310px;height:310px}
+  .hero-art .pulse{position:absolute;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(227,104,63,.55),rgba(227,104,63,0) 70%);animation:pulse 3.2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{transform:scale(.9);opacity:.6}50%{transform:scale(1.15);opacity:1}}
+  .hero-art .mic{position:relative;z-index:2;width:70px;height:70px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(227,104,63,.35)}
+  .hero-art .mic svg{width:30px;height:30px;fill:#fff}
+  .hero-art .name-tag{position:absolute;bottom:22px;left:22px;font-family:var(--serif);font-size:15px;color:var(--muted-dark);z-index:3}
+  .hero-art .name-tag b{color:var(--ink)}
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:64px}
+  .stat{border:1px solid var(--line);border-radius:14px;padding:26px 22px;background:var(--light-card)}
+  .stat .num{font-family:var(--serif);font-size:46px;font-weight:600;line-height:1;color:var(--ink)}
+  .stat .num .u{font-size:18px;color:var(--coral);margin-left:3px}
+  .stat .lbl{margin-top:14px;font-size:14px;color:var(--muted-dark);line-height:1.45}
+
+  /* STEPS */
+  .steps{margin-top:56px;border-top:1px solid var(--line-dark)}
+  .step{display:grid;grid-template-columns:54px 1fr;gap:22px;padding:28px 4px;border-bottom:1px solid var(--line-dark);align-items:start}
+  .step .n{width:42px;height:42px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:17px}
+  .step .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--coral);background:rgba(227,104,63,.10);padding:3px 9px;border-radius:5px;margin-bottom:8px}
+  .step h3{font-size:19px;font-weight:700;color:var(--ink);margin-bottom:5px}
+  .step p{font-size:15px;color:#566;max-width:640px}
+
+  /* OUTCOMES */
+  .outcomes{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:52px}
+  .oc{border:1px solid var(--line);border-radius:14px;padding:26px;background:var(--light-card);transition:transform .25s,border-color .25s,box-shadow .25s}
+  .oc:hover{transform:translateY(-4px);border-color:rgba(227,104,63,.5);box-shadow:0 10px 26px rgba(13,23,20,.08)}
+  .oc .ic{width:42px;height:42px;border-radius:10px;background:rgba(227,104,63,.14);display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:20px}
+  .oc h3{font-family:var(--serif);font-size:20px;font-weight:600;margin-bottom:7px;color:var(--ink)}
+  .oc p{font-size:14.5px;color:var(--muted-dark)}
+  .oc .ph{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--coral);letter-spacing:.3px}
+  .crm-note{margin-top:34px;border:1px dashed rgba(13,23,20,.18);border-radius:12px;padding:20px 24px;font-size:15px;color:var(--muted-dark);display:flex;gap:14px;align-items:center;background:var(--light-card)}
+  .crm-note .b{color:var(--coral);font-weight:700}
+
+  /* HOURS */
+  .hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:48px}
+  .hour-card{border:1px solid var(--line);border-top:2px solid var(--coral);border-radius:14px;padding:30px;background:var(--light-card)}
+  .hour-card .day{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted-dark);margin-bottom:10px}
+  .hour-card .time{font-family:var(--serif);font-size:34px;font-weight:600;color:var(--ink)}
+  .hour-card.closed .time{color:var(--muted)}
+  .night-note{grid-column:1/-1;display:flex;gap:14px;align-items:center;font-size:16px;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:22px 26px;background:#fffdf8}
+  .night-note .moon{font-size:22px}
+
+  /* REFERENCE: SCREENSHOTS + INFO */
+  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+  .shot{border:1px solid var(--line-dark);border-radius:14px;overflow:hidden;background:var(--light-card);cursor:pointer;transition:transform .25s,box-shadow .25s;box-shadow:0 6px 20px rgba(13,23,20,.06)}
+  .shot:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(13,23,20,.14)}
+  .shot img{width:100%;height:auto;display:block;border-bottom:1px solid var(--line-dark)}
+  .shot .cap{padding:16px 18px;font-size:14px;color:var(--ink);font-weight:600;display:flex;align-items:center;justify-content:space-between}
+  .shot .cap .hint{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--coral);font-weight:700}
+
+  .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+  .info-card{border:1px solid var(--line-dark);border-radius:16px;padding:28px;background:var(--light-card)}
+  .info-card h3{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--ink);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .info-card h3 .em{font-size:18px}
+  .row{display:flex;flex-direction:column;gap:3px;padding:11px 0;border-bottom:1px solid var(--line-dark)}
+  .row:last-child{border-bottom:none}
+  .row .k{font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted-dark);font-weight:700}
+  .row .v{font-size:15px;color:var(--ink);font-weight:600;word-break:break-word}
+  .row a{color:var(--coral);text-decoration:none;font-weight:600;word-break:break-all}
+  .row a:hover{text-decoration:underline}
+  .secnote{margin-top:22px;font-size:13px;color:#8a9994;font-style:italic;max-width:760px}
+
+  /* LIGHTBOX */
+  .lb{display:none;position:fixed;inset:0;background:rgba(8,18,15,.9);z-index:100;align-items:center;justify-content:center;padding:30px}
+  .lb.open{display:flex}
+  .lb .box{max-width:1000px;width:100%}
+  .lb .box img{width:100%;height:auto;border-radius:12px;display:block}
+  .lb .box p{margin-top:14px;color:#dfeae6;font-weight:600;text-align:center}
+  .lb .close{position:absolute;top:24px;right:30px;color:#fff;font-size:32px;cursor:pointer}
+
+  /* FOOTER */
+  footer{background:var(--ink);border-top:1px solid var(--line);padding:42px 0;text-align:center;color:#9fb6b0;font-size:13.5px}
+  footer .ft-brand{font-family:var(--serif);color:#fff;font-size:18px;margin-bottom:8px}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .hero-grid{grid-template-columns:1fr}.hero-art{height:260px}
+    .stats,.outcomes,.hours-grid,.gallery,.info-grid{grid-template-columns:1fr}
+    section{padding:72px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand">
+      <span class="r-logo">R</span>
+      <span class="x">×</span>
+      <span class="agent">SARAH · AI VOICE AGENT</span>
+    </div>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#how">How It Works</a>
+      <a href="#call">On The Call</a>
+      <a href="#hours">Calling Hours</a>
+      <a href="#access">Reference</a>
+    </div>
+    <span class="badge-conf">CONFIDENTIAL</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="sec-teal" id="overview">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="pill"><span class="dot"></span> Live &amp; Operational — Rausch PT</span>
+        <h1>Meet Sarah, Your<br><span class="accent">Automated Callback</span> Assistant</h1>
+        <p class="lead">A voice agent that calls every new lead within minutes, asks how they'd like to move forward, sends a booking message, and logs the outcome straight into your CRM — without a single staff member picking up the phone.</p>
+      </div>
+      <div class="hero-art">
+        <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+        <div class="pulse"></div>
+        <div class="mic"><svg viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/></svg></div>
+        <div class="name-tag">Powered by <b>Vapi</b> &amp; <b>Twilio</b></div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><div class="num">2<span class="u">min</span></div><div class="lbl">First call after a form or Google Sheet submission</div></div>
+      <div class="stat reveal"><div class="num">7–7</div><div class="lbl">Daytime calling window — Sarah never calls at night</div></div>
+      <div class="stat reveal"><div class="num">0</div><div class="lbl">Staff hours spent dialing or chasing leads</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec-light" id="how">
+  <div class="wrap">
+    <span class="kicker reveal"><span class="dash"></span> 01 · How It Works</span>
+    <h2 class="reveal">From New Lead to <span class="muted2">Logged Outcome</span></h2>
+    <p class="lead reveal">Every lead — whether it comes from the intake form or a Google Sheet — flows through the same simple, automatic path.</p>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><div><span class="tag">Lead Arrives</span><h3>A new lead is captured</h3><p>Leads come in from the patient intake form or a connected Google Sheet. Each one is added to the CRM automatically — no manual entry by staff.</p></div></div>
+      <div class="step reveal"><div class="n">2</div><div><span class="tag">Within 2 Minutes</span><h3>Sarah places the first call</h3><p>The patient is called within 2 minutes of submitting the form or being added to the Google Sheet — using a Twilio phone number and a Vapi voice agent.</p></div></div>
+      <div class="step reveal"><div class="n">3</div><div><span class="tag">On The Call</span><h3>She offers a clear next step</h3><p>Sarah asks whether to transfer the call to your team now, or send a message so the patient can book their physical therapy appointment.</p></div></div>
+      <div class="step reveal"><div class="n">4</div><div><span class="tag">Logged &amp; Messaged</span><h3>Outcome saved, message sent</h3><p>The patient's choice is written back to the CRM instantly, and a booking message is sent immediately after the call ends.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ON THE CALL -->
+<section class="sec-teal" id="call">
+  <div class="wrap">
+    <span class="kicker reveal"><span class="dash"></span> 02 · On The Call</span>
+    <h2 class="reveal">Every Outcome, <span class="muted2">Handled Automatically</span></h2>
+    <p class="lead reveal">When Sarah reaches a patient, she offers to transfer the call or send a booking message. Based on what the patient says, one of these outcomes is recorded.</p>
+    <div class="outcomes">
+      <div class="oc reveal"><div class="ic">📞</div><h3>Transfer to a human</h3><p>If the patient wants to speak with someone now, Sarah transfers the live call straight to your team.</p><span class="ph">→ +1 949 276 5401</span></div>
+      <div class="oc reveal"><div class="ic">💬</div><h3>Send a booking message</h3><p>The patient gets a text immediately after the call so they can complete their physical therapy booking on their own time.</p><span class="ph">SMS from +1 888 914 2182</span></div>
+      <div class="oc reveal"><div class="ic">⏱️</div><h3>Call back in 5 minutes</h3><p>If now isn't a good time, the patient can ask Sarah to try again — and a fresh callback is placed in 5 minutes.</p></div>
+      <div class="oc reveal"><div class="ic">📅</div><h3>Schedule for another day</h3><p>The patient can ask to be called on a specific day, and Sarah will call then — confirmed against the clinic's schedule.</p></div>
+      <div class="oc reveal"><div class="ic">🚫</div><h3>Do not call again</h3><p>If the patient says not to call again, they're marked accordingly and Sarah will not contact them again.</p></div>
+      <div class="oc reveal"><div class="ic">⚠️</div><h3>Wrong number</h3><p>If it turns out to be the wrong number, the lead is flagged and no further calls are made.</p></div>
+    </div>
+    <div class="crm-note reveal"><span>↳</span><div><span class="b">Every outcome syncs to the CRM.</span> Whatever the patient chooses — transfer, message, callback, scheduled day, opt-out, or wrong number — updates their record the moment the call ends.</div></div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section class="sec-ink" id="hours">
+  <div class="wrap">
+    <span class="kicker reveal"><span class="dash"></span> 03 · Calling Hours</span>
+    <h2 class="reveal">When Sarah Calls <span class="muted2">— And When She Rests</span></h2>
+    <p class="lead reveal">Sarah only ever calls during business hours, in Pacific Time. Outside these windows, every lead simply waits until the next open time.</p>
+    <div class="hours-grid">
+      <div class="hour-card reveal"><div class="day">Monday – Friday</div><div class="time">7:00 AM – 7:00 PM</div></div>
+      <div class="hour-card reveal"><div class="day">Saturday</div><div class="time">7:00 AM – 2:00 PM</div></div>
+      <div class="hour-card closed reveal"><div class="day">Sunday</div><div class="time">Closed</div></div>
+      <div class="hour-card closed reveal"><div class="day">Holidays</div><div class="time">Closed / Early</div></div>
+      <div class="night-note reveal"><span class="moon">🌙</span><div><b>Sarah never calls at night.</b> Calls only go out inside the windows above — a lead scheduled for an off-hour is automatically held until calling resumes.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCE: SCREENSHOTS + INFO -->
+<section class="sec-light" id="access">
+  <div class="wrap">
+    <span class="kicker reveal"><span class="dash"></span> 04 · System Reference</span>
+    <h2 class="reveal">The CRM <span class="muted2">&amp; Access Details</span></h2>
+    <p class="lead reveal">Your live lead pipeline, plus every number, link, and login your team needs. The CRM board is fully <strong>drag-and-drop</strong> — move a lead between New, Active Outreach, Complete, and Needs Review.</p>
+
+    <div class="gallery">
+      <div class="shot reveal" onclick="lightbox('crm-pipeline.png','Live lead pipeline — drag & drop between columns')"><img src="crm-pipeline.png" alt="CRM lead pipeline"><div class="cap"><span>Live lead pipeline · drag &amp; drop columns</span><span class="hint">Click to zoom</span></div></div>
+      <div class="shot reveal" onclick="lightbox('crm-card.png','Lead card detail — status, contact & call attempts')"><img src="crm-card.png" alt="Lead card detail"><div class="cap"><span>Lead card detail · status &amp; call attempts</span><span class="hint">Click to zoom</span></div></div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card reveal">
+        <h3><span class="em">📱</span> Phone Numbers</h3>
+        <div class="row"><span class="k">Sarah calls from</span><span class="v">+1 561 726 8212</span></div>
+        <div class="row"><span class="k">SMS sent from</span><span class="v">+1 888 914 2182</span></div>
+        <div class="row"><span class="k">Transfers to</span><span class="v">+1 949 276 5401</span></div>
+      </div>
+      <div class="info-card reveal">
+        <h3><span class="em">📥</span> Lead Sources</h3>
+        <div class="row"><span class="k">Intake form (n8n)</span><a href="https://n8n.aibolt.ai/form/6745aa37-5c73-4446-8c4d-ccb77581881a" target="_blank" rel="noopener">Open intake form</a></div>
+        <div class="row"><span class="k">Google Sheet</span><a href="https://docs.google.com/spreadsheets/d/1XtKAezRasaL-7Cndw_rDfzyQejZg9rTVTEYPItnoO6s/edit?usp=sharing" target="_blank" rel="noopener">Open lead sheet</a></div>
+      </div>
+      <div class="info-card reveal">
+        <h3><span class="em">🔑</span> CRM Access</h3>
+        <div class="row"><span class="k">Dashboard</span><a href="https://clinic-sv2m.vercel.app/dashboard" target="_blank" rel="noopener">clinic-sv2m.vercel.app/dashboard</a></div>
+        <div class="row"><span class="k">Login</span><span class="v">crmadmin@gmail.com</span></div>
+        <div class="row"><span class="k">Password</span><span class="v">Admin@123</span></div>
+        <div class="row"><span class="k">Backend</span><span class="v">Secured in Supabase</span></div>
+      </div>
+    </div>
+    <p class="secnote reveal">Confidential — for Rausch PT internal use only. Please keep these login credentials private.</p>
+  </div>
+</section>
+
+<div class="lb" id="lb" onclick="closeLb(event)">
+  <span class="close" onclick="closeLb(event)">×</span>
+  <div class="box"><img id="lbimg" src="" alt=""><p id="lbcap"></p></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-brand">Sarah · Rausch Physical Therapy</div>
+    <div>Automated voice callback system — Vapi · Twilio · Supabase</div>
+    <div style="margin-top:8px;opacity:.6">Confidential. For Rausch PT internal use only.</div>
+  </div>
+</footer>
+
+<script>
+  function lightbox(src,cap){
+    document.getElementById('lbimg').src = src;
+    document.getElementById('lbcap').textContent = cap;
+    document.getElementById('lb').classList.add('open');
+  }
+  function closeLb(e){
+    if(e.target.id==='lb' || e.target.classList.contains('close')) document.getElementById('lb').classList.remove('open');
+  }
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.transitionDelay=(i%4*0.06)+'s'; io.observe(el); });
+</script>
+</body>
+</html>
