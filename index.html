@@ -162,8 +162,8 @@
     </div>
     <div class="nav-links">
       <a href="#overview">Overview</a>
-      <a href="#how">How It Works</a>
-      <a href="#call">On The Call</a>
+      <a href="#how">Process Flow</a>
+      <a href="#call">Call Outcomes</a>
       <a href="#hours">Calling Hours</a>
       <a href="#access">Reference</a>
     </div>
@@ -176,9 +176,9 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="pill"><span class="dot"></span> Live &amp; Operational — Rausch PT</span>
-        <h1>Meet Sarah, Your<br><span class="accent">Automated Callback</span> Assistant</h1>
-        <p class="lead">A voice agent that calls every new lead within minutes, asks how they'd like to move forward, sends a booking message, and logs the outcome straight into your CRM — without a single staff member picking up the phone.</p>
+        <span class="pill"><span class="dot"></span> System Active — Rausch PT</span>
+        <h1>Sarah —<br><span class="accent">Voice Agent</span> Reference</h1>
+        <p class="lead">This page documents how the Sarah voice agent operates for Rausch Physical Therapy: how leads are received, when calls go out, what happens on each call, and where the outcome is recorded. Use it as a reference for your team.</p>
       </div>
       <div class="hero-art">
         <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
@@ -188,9 +188,9 @@
       </div>
     </div>
     <div class="stats">
-      <div class="stat reveal"><div class="num">2<span class="u">min</span></div><div class="lbl">First call after a form or Google Sheet submission</div></div>
-      <div class="stat reveal"><div class="num">7–7</div><div class="lbl">Daytime calling window — Sarah never calls at night</div></div>
-      <div class="stat reveal"><div class="num">0</div><div class="lbl">Staff hours spent dialing or chasing leads</div></div>
+      <div class="stat reveal"><div class="num">2<span class="u">min</span></div><div class="lbl">Time from form or sheet entry to first call attempt</div></div>
+      <div class="stat reveal"><div class="num">7–7</div><div class="lbl">Daytime calling window in Pacific Time, Monday–Friday</div></div>
+      <div class="stat reveal"><div class="num">6</div><div class="lbl">Distinct call outcomes recorded back to the CRM</div></div>
     </div>
   </div>
 </section>
@@ -198,14 +198,14 @@
 <!-- HOW IT WORKS -->
 <section class="sec-light" id="how">
   <div class="wrap">
-    <span class="kicker reveal"><span class="dash"></span> 01 · How It Works</span>
-    <h2 class="reveal">From New Lead to <span class="muted2">Logged Outcome</span></h2>
-    <p class="lead reveal">Every lead — whether it comes from the intake form or a Google Sheet — flows through the same simple, automatic path.</p>
+    <span class="kicker reveal"><span class="dash"></span> 01 · Process Flow</span>
+    <h2 class="reveal">From Lead Entry to <span class="muted2">Recorded Outcome</span></h2>
+    <p class="lead reveal">Each lead, whether submitted through the intake form or added to the Google Sheet, follows the same four-step path.</p>
     <div class="steps">
-      <div class="step reveal"><div class="n">1</div><div><span class="tag">Lead Arrives</span><h3>A new lead is captured</h3><p>Leads come in from the patient intake form or a connected Google Sheet. Each one is added to the CRM automatically — no manual entry by staff.</p></div></div>
-      <div class="step reveal"><div class="n">2</div><div><span class="tag">Within 2 Minutes</span><h3>Sarah places the first call</h3><p>The patient is called within 2 minutes of submitting the form or being added to the Google Sheet — using a Twilio phone number and a Vapi voice agent.</p></div></div>
-      <div class="step reveal"><div class="n">3</div><div><span class="tag">On The Call</span><h3>She offers a clear next step</h3><p>Sarah asks whether to transfer the call to your team now, or send a message so the patient can book their physical therapy appointment.</p></div></div>
-      <div class="step reveal"><div class="n">4</div><div><span class="tag">Logged &amp; Messaged</span><h3>Outcome saved, message sent</h3><p>The patient's choice is written back to the CRM instantly, and a booking message is sent immediately after the call ends.</p></div></div>
+      <div class="step reveal"><div class="n">1</div><div><span class="tag">Step 1 · Intake</span><h3>Lead is received</h3><p>A new lead enters the system through the patient intake form or the connected Google Sheet. The record is created in the CRM automatically; no manual entry by staff is required.</p></div></div>
+      <div class="step reveal"><div class="n">2</div><div><span class="tag">Step 2 · First Call</span><h3>Sarah places the first call within 2 minutes</h3><p>Within two minutes of the lead being received, the agent dials the patient using the configured Twilio number, routed through a Vapi voice agent.</p></div></div>
+      <div class="step reveal"><div class="n">3</div><div><span class="tag">Step 3 · Conversation</span><h3>The patient is offered a next step</h3><p>The agent asks whether to transfer the call to a team member immediately, or to send a message the patient can use to complete their physical therapy booking on their own time.</p></div></div>
+      <div class="step reveal"><div class="n">4</div><div><span class="tag">Step 4 · Logging</span><h3>Outcome is written and message is sent</h3><p>The patient's response is recorded against their CRM record as soon as the call ends, and the booking message is sent immediately afterward.</p></div></div>
     </div>
   </div>
 </section>
@@ -213,18 +213,18 @@
 <!-- ON THE CALL -->
 <section class="sec-teal" id="call">
   <div class="wrap">
-    <span class="kicker reveal"><span class="dash"></span> 02 · On The Call</span>
-    <h2 class="reveal">Every Outcome, <span class="muted2">Handled Automatically</span></h2>
-    <p class="lead reveal">When Sarah reaches a patient, she offers to transfer the call or send a booking message. Based on what the patient says, one of these outcomes is recorded.</p>
+    <span class="kicker reveal"><span class="dash"></span> 02 · Call Outcomes</span>
+    <h2 class="reveal">Possible Outcomes on <span class="muted2">a Patient Call</span></h2>
+    <p class="lead reveal">The agent is configured to recognise the following responses from a patient. Each outcome is written to the patient's CRM record at the end of the call.</p>
     <div class="outcomes">
-      <div class="oc reveal"><div class="ic">📞</div><h3>Transfer to a human</h3><p>If the patient wants to speak with someone now, Sarah transfers the live call straight to your team.</p><span class="ph">→ +1 949 276 5401</span></div>
-      <div class="oc reveal"><div class="ic">💬</div><h3>Send a booking message</h3><p>The patient gets a text immediately after the call so they can complete their physical therapy booking on their own time.</p><span class="ph">SMS from +1 888 914 2182</span></div>
-      <div class="oc reveal"><div class="ic">⏱️</div><h3>Call back in 5 minutes</h3><p>If now isn't a good time, the patient can ask Sarah to try again — and a fresh callback is placed in 5 minutes.</p></div>
-      <div class="oc reveal"><div class="ic">📅</div><h3>Schedule for another day</h3><p>The patient can ask to be called on a specific day, and Sarah will call then — confirmed against the clinic's schedule.</p></div>
-      <div class="oc reveal"><div class="ic">🚫</div><h3>Do not call again</h3><p>If the patient says not to call again, they're marked accordingly and Sarah will not contact them again.</p></div>
-      <div class="oc reveal"><div class="ic">⚠️</div><h3>Wrong number</h3><p>If it turns out to be the wrong number, the lead is flagged and no further calls are made.</p></div>
+      <div class="oc reveal"><div class="ic">📞</div><h3>Transfer the call</h3><p>If the patient asks to speak with someone, the live call is transferred to the clinic's team line.</p><span class="ph">→ +1 949 276 5401</span></div>
+      <div class="oc reveal"><div class="ic">💬</div><h3>Send a booking message</h3><p>Once the call ends, a text message is sent to the patient containing the link they need to complete their physical therapy booking.</p><span class="ph">SMS from +1 888 914 2182</span></div>
+      <div class="oc reveal"><div class="ic">⏱️</div><h3>Callback in 5 minutes</h3><p>If the patient asks to be called back in five minutes, a new call attempt is scheduled and placed automatically at that time.</p></div>
+      <div class="oc reveal"><div class="ic">📅</div><h3>Callback on a specific day</h3><p>If the patient asks to be called on a particular day, the agent will place the call on that day, subject to confirmation against the clinic schedule.</p></div>
+      <div class="oc reveal"><div class="ic">🚫</div><h3>Do not call again</h3><p>If the patient asks not to be contacted again, the record is marked accordingly and no further calls are placed to that number.</p></div>
+      <div class="oc reveal"><div class="ic">⚠️</div><h3>Wrong number</h3><p>If the patient indicates this is not their number, the lead is flagged in the CRM and removed from the active calling list.</p></div>
     </div>
-    <div class="crm-note reveal"><span>↳</span><div><span class="b">Every outcome syncs to the CRM.</span> Whatever the patient chooses — transfer, message, callback, scheduled day, opt-out, or wrong number — updates their record the moment the call ends.</div></div>
+    <div class="crm-note reveal"><span>↳</span><div><span class="b">All outcomes are written back to the CRM.</span> Regardless of which outcome occurs — transfer, message, callback, scheduled day, opt-out, or wrong number — the patient's record is updated as soon as the call ends.</div></div>
   </div>
 </section>
 
@@ -232,14 +232,14 @@
 <section class="sec-ink" id="hours">
   <div class="wrap">
     <span class="kicker reveal"><span class="dash"></span> 03 · Calling Hours</span>
-    <h2 class="reveal">When Sarah Calls <span class="muted2">— And When She Rests</span></h2>
-    <p class="lead reveal">Sarah only ever calls during business hours, in Pacific Time. Outside these windows, every lead simply waits until the next open time.</p>
+    <h2 class="reveal">Operating Hours <span class="muted2">(Pacific Time)</span></h2>
+    <p class="lead reveal">Calls are only placed inside the windows below. Leads received outside these hours are held in the queue and called when the next window opens.</p>
     <div class="hours-grid">
       <div class="hour-card reveal"><div class="day">Monday – Friday</div><div class="time">7:00 AM – 7:00 PM</div></div>
       <div class="hour-card reveal"><div class="day">Saturday</div><div class="time">7:00 AM – 2:00 PM</div></div>
       <div class="hour-card closed reveal"><div class="day">Sunday</div><div class="time">Closed</div></div>
       <div class="hour-card closed reveal"><div class="day">Holidays</div><div class="time">Closed / Early</div></div>
-      <div class="night-note reveal"><span class="moon">🌙</span><div><b>Sarah never calls at night.</b> Calls only go out inside the windows above — a lead scheduled for an off-hour is automatically held until calling resumes.</div></div>
+      <div class="night-note reveal"><span class="moon">🌙</span><div><b>No calls are placed outside operating hours.</b> Any lead due for a call during a closed window is automatically held until the next open window.</div></div>
     </div>
   </div>
 </section>
@@ -248,8 +248,8 @@
 <section class="sec-light" id="access">
   <div class="wrap">
     <span class="kicker reveal"><span class="dash"></span> 04 · System Reference</span>
-    <h2 class="reveal">The CRM <span class="muted2">&amp; Access Details</span></h2>
-    <p class="lead reveal">Your live lead pipeline, plus every number, link, and login your team needs. The CRM board is fully <strong>drag-and-drop</strong> — move a lead between New, Active Outreach, Complete, and Needs Review.</p>
+    <h2 class="reveal">CRM &amp; <span class="muted2">Access Details</span></h2>
+    <p class="lead reveal">Reference details for the CRM pipeline, the lead sources connected to it, and the phone numbers used by the agent. The CRM board supports <strong>drag-and-drop</strong>; a lead can be moved between New, Active Outreach, Complete, and Needs Review by dragging its card.</p>
 
     <div class="gallery">
       <div class="shot reveal" onclick="lightbox('crm-pipeline.png','Live lead pipeline — drag & drop between columns')"><img src="crm-pipeline.png" alt="CRM lead pipeline"><div class="cap"><span>Live lead pipeline · drag &amp; drop columns</span><span class="hint">Click to zoom</span></div></div>
@@ -276,7 +276,7 @@
         <div class="row"><span class="k">Backend</span><span class="v">Secured in Supabase</span></div>
       </div>
     </div>
-    <p class="secnote reveal">Confidential — for Rausch PT internal use only. Please keep these login credentials private.</p>
+    <p class="secnote reveal">Confidential — for Rausch PT internal use only. The login credentials above should not be shared outside the team.</p>
   </div>
 </section>
 
@@ -288,7 +288,7 @@
 <footer>
   <div class="wrap">
     <div class="ft-brand">Sarah · Rausch Physical Therapy</div>
-    <div>Automated voice callback system — Vapi · Twilio · Supabase</div>
+    <div>Voice callback system reference — Vapi · Twilio · Supabase</div>
     <div style="margin-top:8px;opacity:.6">Confidential. For Rausch PT internal use only.</div>
   </div>
 </footer>
