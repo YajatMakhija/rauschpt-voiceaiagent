@@ -87,6 +87,12 @@
   .step .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--coral);background:rgba(227,104,63,.10);padding:3px 9px;border-radius:5px;margin-bottom:8px}
   .step h3{font-size:19px;font-weight:700;color:var(--ink);margin-bottom:5px}
   .step p{font-size:15px;color:#566;max-width:640px}
+  .step-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .step-links a{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fffdf8;padding:10px 16px;border-radius:8px;font-size:13.5px;font-weight:600;text-decoration:none;transition:background .2s,transform .2s}
+  .step-links a:hover{background:var(--teal-deep);transform:translateY(-1px)}
+  .step-links a .arrow{font-size:12px;opacity:.8}
+  .step-links a.alt{background:var(--coral)}
+  .step-links a.alt:hover{background:#c95830}
 
   /* OUTCOMES */
   .outcomes{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:52px}
@@ -116,7 +122,7 @@
   .shot .cap{padding:16px 18px;font-size:14px;color:var(--ink);font-weight:600;display:flex;align-items:center;justify-content:space-between}
   .shot .cap .hint{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--coral);font-weight:700}
 
-  .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+  .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:34px}
   .info-card{border:1px solid var(--line-dark);border-radius:16px;padding:28px;background:var(--light-card)}
   .info-card h3{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--ink);margin-bottom:16px;display:flex;align-items:center;gap:10px}
   .info-card h3 .em{font-size:18px}
@@ -202,10 +208,10 @@
     <h2 class="reveal">Every Lead, Logged <span class="muted2">in Four Steps</span></h2>
     <p class="lead reveal">Each lead — submitted through the intake form or added to the Google Sheet — moves through the same four steps automatically, with no manual handoff.</p>
     <div class="steps">
-      <div class="step reveal"><div class="n">1</div><div><span class="tag">Step 1 · Intake</span><h3>Lead is received</h3><p>A new lead enters the system through the patient intake form or the connected Google Sheet. The record is created in the CRM automatically; no manual entry by staff is required.</p></div></div>
+      <div class="step reveal"><div class="n">1</div><div><span class="tag">Step 1 · Intake</span><h3>Lead is received from the form or Google Sheet</h3><p>A new lead enters the system through one of two sources: the patient intake form (n8n) or the connected Google Sheet. The record is created in the CRM automatically — no manual entry by staff is required.</p><div class="step-links"><a href="https://n8n.aibolt.ai/form/6745aa37-5c73-4446-8c4d-ccb77581881a" target="_blank" rel="noopener">Open intake form <span class="arrow">↗</span></a><a class="alt" href="https://docs.google.com/spreadsheets/d/1XtKAezRasaL-7Cndw_rDfzyQejZg9rTVTEYPItnoO6s/edit?usp=sharing" target="_blank" rel="noopener">Open Google Sheet <span class="arrow">↗</span></a></div></div></div>
       <div class="step reveal"><div class="n">2</div><div><span class="tag">Step 2 · First Call</span><h3>Sarah places the first call within 2 minutes</h3><p>Within two minutes of the lead being received, the agent dials the patient using the configured Twilio number, routed through a Vapi voice agent.</p></div></div>
       <div class="step reveal"><div class="n">3</div><div><span class="tag">Step 3 · Conversation</span><h3>The patient is offered a next step</h3><p>The agent asks whether to transfer the call to a team member immediately, or to send a message the patient can use to complete their physical therapy booking on their own time.</p></div></div>
-      <div class="step reveal"><div class="n">4</div><div><span class="tag">Step 4 · Logging</span><h3>Outcome is written and message is sent</h3><p>The patient's response is recorded against their CRM record as soon as the call ends, and the booking message is sent immediately afterward.</p></div></div>
+      <div class="step reveal"><div class="n">4</div><div><span class="tag">Step 4 · Logging</span><h3>Outcome is written and message is sent</h3><p>The patient's response is recorded against their CRM record as soon as the call ends, and the booking message is sent immediately afterward. The result appears live on the CRM board.</p><div class="step-links"><a href="https://clinic-sv2m.vercel.app/dashboard" target="_blank" rel="noopener">Open CRM dashboard <span class="arrow">↗</span></a></div></div></div>
     </div>
   </div>
 </section>
@@ -262,11 +268,6 @@
         <div class="row"><span class="k">Sarah calls from</span><span class="v">+1 561 726 8212</span></div>
         <div class="row"><span class="k">SMS sent from</span><span class="v">+1 888 914 2182</span></div>
         <div class="row"><span class="k">Transfers to</span><span class="v">+1 949 276 5401</span></div>
-      </div>
-      <div class="info-card reveal">
-        <h3><span class="em">📥</span> Lead Sources</h3>
-        <div class="row"><span class="k">Intake form (n8n)</span><a href="https://n8n.aibolt.ai/form/6745aa37-5c73-4446-8c4d-ccb77581881a" target="_blank" rel="noopener">Open intake form</a></div>
-        <div class="row"><span class="k">Google Sheet</span><a href="https://docs.google.com/spreadsheets/d/1XtKAezRasaL-7Cndw_rDfzyQejZg9rTVTEYPItnoO6s/edit?usp=sharing" target="_blank" rel="noopener">Open lead sheet</a></div>
       </div>
       <div class="info-card reveal">
         <h3><span class="em">🔑</span> CRM Access</h3>
