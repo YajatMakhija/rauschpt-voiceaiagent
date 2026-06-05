@@ -94,6 +94,11 @@
   .step-links a.alt{background:var(--coral)}
   .step-links a.alt:hover{background:#c95830}
 
+  /* HOURS STRIP (inline note) */
+  .hours-strip{display:flex;gap:14px;align-items:flex-start;margin-top:34px;border:1px solid var(--line);border-left:3px solid var(--coral);border-radius:10px;padding:16px 20px;background:#fffdf8;font-size:15px;color:#4a5651;line-height:1.55}
+  .hours-strip b{color:var(--ink)}
+  .hours-strip .hours-ic{font-size:18px;line-height:1.4;flex-shrink:0}
+
   /* OUTCOMES */
   .outcomes{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:52px}
   .oc{border:1px solid var(--line);border-radius:14px;padding:26px;background:var(--light-card);transition:transform .25s,border-color .25s,box-shadow .25s}
@@ -163,15 +168,10 @@
   <div class="wrap nav-inner">
     <div class="brand">
       <img class="r-logo" src="rausch-logo.jpeg" alt="Rausch Physical Therapy &amp; Wellness">
-      <span class="x">×</span>
-      <span class="agent">SARAH · AI VOICE AGENT</span>
     </div>
     <div class="nav-links">
       <a href="#overview">Overview</a>
       <a href="#how">Process Flow</a>
-      <a href="#call">Call Outcomes</a>
-      <a href="#hours">Calling Hours</a>
-      <a href="#access">Reference</a>
     </div>
     <span class="badge-conf">CONFIDENTIAL</span>
   </div>
@@ -213,49 +213,10 @@
       <div class="step reveal"><div class="n">3</div><div><span class="tag">Step 3 · Conversation</span><h3>The patient is offered a next step</h3><p>The agent asks whether to transfer the call to a team member immediately, or to send a message the patient can use to complete their physical therapy booking on their own time.</p></div></div>
       <div class="step reveal"><div class="n">4</div><div><span class="tag">Step 4 · Logging</span><h3>Outcome is written and message is sent</h3><p>The patient's response is recorded against their CRM record as soon as the call ends, and the booking message is sent immediately afterward. The result appears live on the CRM board.</p><div class="step-links"><a href="https://clinic-sv2m.vercel.app/dashboard" target="_blank" rel="noopener">Open CRM dashboard <span class="arrow">↗</span></a></div></div></div>
     </div>
-  </div>
-</section>
 
-<!-- ON THE CALL -->
-<section class="sec-teal" id="call">
-  <div class="wrap">
-    <span class="kicker reveal"><span class="dash"></span> 02 · Call Outcomes</span>
-    <h2 class="reveal">Six Outcomes, <span class="muted2">Handled Live on the Call</span></h2>
-    <p class="lead reveal">The agent is configured to recognise six distinct patient responses. Whichever one occurs, the result is written to the patient's CRM record the moment the call ends.</p>
-    <div class="outcomes">
-      <div class="oc reveal"><div class="ic">📞</div><h3>Transfer the call</h3><p>If the patient asks to speak with someone, the live call is transferred to the clinic's team line.</p><span class="ph">→ +1 949 276 5401</span></div>
-      <div class="oc reveal"><div class="ic">💬</div><h3>Send a booking message</h3><p>Once the call ends, a text message is sent to the patient containing the link they need to complete their physical therapy booking.</p><span class="ph">SMS from +1 888 914 2182</span></div>
-      <div class="oc reveal"><div class="ic">⏱️</div><h3>Callback in 5 minutes</h3><p>If the patient asks to be called back in five minutes, a new call attempt is scheduled and placed automatically at that time.</p></div>
-      <div class="oc reveal"><div class="ic">📅</div><h3>Callback on a specific day</h3><p>If the patient asks to be called on a particular day, the agent will place the call on that day, subject to confirmation against the clinic schedule.</p></div>
-      <div class="oc reveal"><div class="ic">🚫</div><h3>Do not call again</h3><p>If the patient asks not to be contacted again, the record is marked accordingly and no further calls are placed to that number.</p></div>
-      <div class="oc reveal"><div class="ic">⚠️</div><h3>Wrong number</h3><p>If the patient indicates this is not their number, the lead is flagged in the CRM and removed from the active calling list.</p></div>
-    </div>
-    <div class="crm-note reveal"><span>↳</span><div><span class="b">All outcomes are written back to the CRM.</span> Regardless of which outcome occurs — transfer, message, callback, scheduled day, opt-out, or wrong number — the patient's record is updated as soon as the call ends.</div></div>
-  </div>
-</section>
+    <div class="hours-strip reveal"><span class="hours-ic">🕘</span><span><b>Operating hours:</b> Monday–Friday 7:00 AM – 7:00 PM and Saturday 7:00 AM – 2:00 PM, Pacific Time. Leads received outside these hours are held in the queue until calling resumes.</span></div>
 
-<!-- HOURS -->
-<section class="sec-ink" id="hours">
-  <div class="wrap">
-    <span class="kicker reveal"><span class="dash"></span> 03 · Calling Hours</span>
-    <h2 class="reveal">Operating Hours <span class="muted2">(Pacific Time)</span></h2>
-    <p class="lead reveal">Calls are only placed inside the windows below. Leads received outside these hours are held in the queue and called when the next window opens.</p>
-    <div class="hours-grid">
-      <div class="hour-card reveal"><div class="day">Monday – Friday</div><div class="time">7:00 AM – 7:00 PM</div></div>
-      <div class="hour-card reveal"><div class="day">Saturday</div><div class="time">7:00 AM – 2:00 PM</div></div>
-      <div class="hour-card closed reveal"><div class="day">Sunday</div><div class="time">Closed</div></div>
-      <div class="hour-card closed reveal"><div class="day">Holidays</div><div class="time">Closed / Early</div></div>
-      <div class="night-note reveal"><span class="moon">🌙</span><div><b>No calls are placed outside operating hours.</b> Any lead due for a call during a closed window is automatically held until the next open window.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- REFERENCE: SCREENSHOTS + INFO -->
-<section class="sec-light" id="access">
-  <div class="wrap">
-    <span class="kicker reveal"><span class="dash"></span> 04 · System Reference</span>
-    <h2 class="reveal">CRM, Numbers, <span class="muted2">and Access</span></h2>
-    <p class="lead reveal">The live lead pipeline, the phone numbers Sarah uses, and the credentials your team needs to log in. The board is fully <strong>drag-and-drop</strong> — cards move between New, Active Outreach, Complete, and Needs Review with a click and drag.</p>
+    <div class="hours-strip reveal"><span class="hours-ic">🎯</span><span><b>Six call outcomes recognised:</b> transfer to a team member (+1 949 276 5401) · send booking SMS (from +1 888 914 2182) · callback in 5 minutes · callback on a specific day · do not call again · wrong number — all written back to the CRM the moment the call ends.</span></div>
 
     <div class="gallery">
       <div class="shot reveal" onclick="lightbox('crm-pipeline.png','Live lead pipeline — drag & drop between columns')"><img src="crm-pipeline.png" alt="CRM lead pipeline"><div class="cap"><span>Live lead pipeline · drag &amp; drop columns</span><span class="hint">Click to zoom</span></div></div>
