@@ -107,6 +107,8 @@
   .outcomes-block ul li{position:relative;padding-left:18px}
   .outcomes-block ul li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:7px;border-radius:50%;background:var(--coral)}
   .outcomes-block ul li b{color:var(--ink);font-weight:600}
+  .outcomes-block ul li.span2{grid-column:1/-1}
+  .outcomes-block.single-col ul{grid-template-columns:1fr}
   @media(max-width:720px){
     .outcomes-block ul{grid-template-columns:1fr}
   }
@@ -225,7 +227,7 @@
       <div class="step reveal"><div class="n">4</div><div><span class="tag">Step 4 · Logged</span><h3>SMS sent or call transferred</h3><p>If the patient picks the SMS, it goes out immediately from <b>+1 888 914 2182</b>. If they pick transfer, the call is routed live to <b>+1 949 276 5401</b>. Either way, the outcome is written to the CRM.</p><div class="step-links"><a href="https://clinic-sv2m.vercel.app/dashboard" target="_blank" rel="noopener">Open CRM dashboard <span class="arrow">↗</span></a></div></div></div>
     </div>
 
-    <div class="outcomes-block reveal">
+    <div class="outcomes-block single-col reveal">
       <div class="ob-head"><span class="ob-ic">🕘</span><span>Operating hours (Pacific Time) — leads received outside these hours wait in the queue:</span></div>
       <ul>
         <li><b>Monday – Friday</b> &nbsp; 7:00 AM – 7:00 PM</li>
