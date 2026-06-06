@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sarah — Rausch Physical Therapy Voice Agent</title>
+<title>Rausch Physical Therapy — Voice Agent</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -220,15 +220,24 @@
     <p class="lead reveal">Each lead — submitted through the intake form or added to the Google Sheet — moves through the same four steps automatically, with no manual handoff.</p>
     <div class="steps">
       <div class="step reveal"><div class="n">1</div><div><span class="tag">Step 1 · Intake</span><h3>Lead enters the CRM</h3><p>A patient is added to the Google Sheet and the lead is created in the CRM automatically.</p><div class="step-links"><a href="https://docs.google.com/spreadsheets/d/1XtKAezRasaL-7Cndw_rDfzyQejZg9rTVTEYPItnoO6s/edit?usp=sharing" target="_blank" rel="noopener">Open Google Sheet <span class="arrow">↗</span></a></div></div></div>
-      <div class="step reveal"><div class="n">2</div><div><span class="tag">Step 2 · First Call</span><h3>Sarah calls within 2 minutes</h3><p>Sarah calls the patient from <b>+1 561 726 8212</b> within 2 minutes. Off-hour leads wait in the queue.</p></div></div>
-      <div class="step reveal"><div class="n">3</div><div><span class="tag">Step 3 · Two Options</span><h3>Sarah offers SMS or call transfer</h3><p>After confirming interest, Sarah gives the patient two options: receive a booking SMS, or be transferred live to the clinic team at <b>+1 949 276 5401</b>.</p></div></div>
+      <div class="step reveal"><div class="n">2</div><div><span class="tag">Step 2 · First Call</span><h3>Patient is called within 2 minutes</h3><p>The voice agent calls the patient from <b>+1 213 758 1768</b> within 2 minutes via Vapi. Off-hour leads wait in the queue.</p></div></div>
+      <div class="step reveal"><div class="n">3</div><div><span class="tag">Step 3 · Two Options</span><h3>SMS or call transfer offered</h3><p>After confirming interest, the patient is offered two options: receive a booking SMS, or be transferred live to the clinic team at <b>+1 949 276 5401</b>.</p></div></div>
       <div class="step reveal"><div class="n">4</div><div><span class="tag">Step 4 · Logged</span><h3>SMS sent or call transferred</h3><p>If the patient picks the SMS, it goes out immediately from <b>+1 888 914 2182</b>. If they pick transfer, the call is routed live to <b>+1 949 276 5401</b>. Either way, the outcome is written to the CRM.</p><div class="step-links"><a href="https://clinic-sv2m.vercel.app/dashboard" target="_blank" rel="noopener">Open CRM dashboard <span class="arrow">↗</span></a></div></div></div>
     </div>
 
-    <div class="hours-strip reveal"><span class="hours-ic">🕘</span><span><b>Operating hours:</b> Monday–Friday 7:00 AM – 7:00 PM and Saturday 7:00 AM – 2:00 PM, Pacific Time. Leads received outside these hours are held in the queue until calling resumes.</span></div>
+    <div class="outcomes-block reveal">
+      <div class="ob-head"><span class="ob-ic">🕘</span><span>Operating hours (Pacific Time) — leads received outside these hours wait in the queue:</span></div>
+      <ul>
+        <li><b>Monday – Friday</b> &nbsp; 7:00 AM – 7:00 PM</li>
+        <li><b>Saturday</b> &nbsp; 7:00 AM – 2:00 PM</li>
+        <li><b>Sunday</b> &nbsp; Closed</li>
+        <li><b>Closed holidays</b> &nbsp; Memorial Day · Thanksgiving · Christmas · New Year's Day</li>
+        <li><b>Early close at 2:00 PM</b> &nbsp; Christmas Eve &amp; New Year's Eve</li>
+      </ul>
+    </div>
 
     <div class="outcomes-block reveal">
-      <div class="ob-head"><span class="ob-ic">🎯</span><span>Six situations can be handled in every call:</span></div>
+      <div class="ob-head"><span class="ob-ic">🎯</span><span>Six different situations can be handled within a single call.</span></div>
       <ul>
         <li><b>Transfer the call</b> to the clinic team line (+1 949 276 5401)</li>
         <li><b>Send a booking SMS</b> to the patient (from +1 888 914 2182)</li>
@@ -247,7 +256,7 @@
     <div class="info-grid">
       <div class="info-card reveal">
         <h3><span class="em">📱</span> Phone Numbers</h3>
-        <div class="row"><span class="k">Sarah calls from</span><span class="v">+1 561 726 8212</span></div>
+        <div class="row"><span class="k">Outbound calls (Vapi)</span><span class="v">+1 213 758 1768</span></div>
         <div class="row"><span class="k">SMS sent from</span><span class="v">+1 888 914 2182</span></div>
         <div class="row"><span class="k">Transfers to</span><span class="v">+1 949 276 5401</span></div>
       </div>
@@ -270,7 +279,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="ft-brand">Sarah · Rausch Physical Therapy</div>
+    <div class="ft-brand">Rausch Physical Therapy</div>
     <div>Voice callback system reference — Vapi · Twilio · Supabase</div>
     <div style="margin-top:8px;opacity:.6">Confidential. For Rausch PT internal use only.</div>
   </div>
